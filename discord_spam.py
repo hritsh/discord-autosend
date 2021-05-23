@@ -5,14 +5,32 @@ from webdriver_manager.chrome import ChromeDriverManager
 from progress.bar import ChargingBar
 from time import sleep
 from os import system, name as osname
+from pickle import load
+from login import store
+
+def retrieve():
+    try:
+        frobj = open("logindetails.dat","rb")
+        details = load(frobj)
+        frobj.close()
+        return details
+    except:
+        frobj.close()
+        return None
+
+def clearscreen():
+    system('cls' if osname == 'nt' else 'clear')
+    print("-"*100+"\n"+" "*36+"DISCORD SPAM / AUTO SEND"+"\n"+"-"*100+"\n")
 
 ## Opening link and logging in
 def login(link,email,passwd):
     ## Initialising/Installing Chromedriver
-    global driver
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    global driver, flag
+    if (flag == False):
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+        flag = True
     driver.get(link)
-    system('cls' if osname == 'nt' else 'clear')
+    clearscreen()
     print("\nLogging in...")
     driver.find_element_by_name('email').send_keys(email)
     driver.find_element_by_name('password').send_keys(passwd)
@@ -20,7 +38,7 @@ def login(link,email,passwd):
     sleep(5)
     print("\nLogged in successfully")
     sleep(1)
-    system('cls' if osname == 'nt' else 'clear')
+    clearscreen()
 
 ## Starting spam
 def spam(n,message):
@@ -33,21 +51,28 @@ def spam(n,message):
             actions.perform()
             bar.next()
             sleep(1)
+    print("\nAll Messages Sent")
 
 ## Menu
 def main():
+    global flag
+    flag = False
+    details = retrieve()
+    if (details != None):
+        email,passwd = details
+    else:
+        store()
+        main()
+
     while True:
-        system('cls' if osname == 'nt' else 'clear')
-        print("-"*100+"\n"+" "*36+"DISCORD SPAM / AUTO SEND"+"\n"+"-"*100+"\n")
-        email = input("Enter discord e-mail address: ")
-        passwd = input("Enter password: ")
+        clearscreen()
         link = input("Enter link to channel: ")
-        login(link,email,passwd)
         message = input("\nEnter message to send: ")
         n = int(input("Enter number of messages: "))
         print()
+        login(link,email,passwd)
         spam(n,message)
-        choice = input("\nDo you want to continue (y/n): ")
+        choice = input("\nDo you want to send more messages (y/n): ")
         if (choice == "n"):
             break
 
