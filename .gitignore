@@ -1,2 +1,8 @@
 __pycache__/login.cpython-39.pyc
 logindetails.dat
+.qt_for_python/uic/gui.py
+.qt_for_python/rcc/logo.py
+logo.psd
+logo.qrc
+logo.png
+gui_load.py
