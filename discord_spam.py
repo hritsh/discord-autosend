@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from progress.bar import ChargingBar
 from time import sleep
 from os import system, name as osname
@@ -25,18 +28,23 @@ def clearscreen():
 ## Opening link and logging in
 def login(link,email,passwd):
     ## Initialising/Installing Chromedriver
-    global driver, flag
+    global driver, flag, templink
     if (flag == False):
         driver = webdriver.Chrome(ChromeDriverManager().install())
+    if (link != templink):
+            print("Loading Discord...")
+            driver.get(link)
+            templink = link
+    if (flag == False):
+        clearscreen()
+        myElem = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.NAME , 'email')))
+        print("\nLogging in...")
+        driver.find_element_by_name('email').send_keys(email)
+        driver.find_element_by_name('password').send_keys(passwd)
+        driver.find_element_by_name('password').send_keys(Keys.RETURN)
+        sleep(5)
+        print("\nLogged in successfully")
         flag = True
-    driver.get(link)
-    clearscreen()
-    print("\nLogging in...")
-    driver.find_element_by_name('email').send_keys(email)
-    driver.find_element_by_name('password').send_keys(passwd)
-    driver.find_element_by_name('password').send_keys(Keys.RETURN)
-    sleep(5)
-    print("\nLogged in successfully")
     sleep(1)
     clearscreen()
 
@@ -77,4 +85,6 @@ def main():
             break
 
 if __name__ == '__main__':
+    driver = ''
+    templink = ''
     main()

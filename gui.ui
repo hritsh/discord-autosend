@@ -19,7 +19,7 @@ color: rgb(255, 255, 255);
 alternate-background-color: rgb(35, 39, 42);</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -33,7 +33,7 @@ alternate-background-color: rgb(35, 39, 42);</string>
      <rect>
       <x>38</x>
       <y>171</y>
-      <width>231</width>
+      <width>191</width>
       <height>20</height>
      </rect>
     </property>
@@ -44,9 +44,9 @@ alternate-background-color: rgb(35, 39, 42);</string>
    <widget class="QLineEdit" name="link">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>230</x>
       <y>171</y>
-      <width>301</width>
+      <width>351</width>
       <height>20</height>
      </rect>
     </property>
@@ -56,7 +56,7 @@ alternate-background-color: rgb(35, 39, 42);</string>
      <rect>
       <x>38</x>
       <y>201</y>
-      <width>221</width>
+      <width>191</width>
       <height>20</height>
      </rect>
     </property>
@@ -67,9 +67,9 @@ alternate-background-color: rgb(35, 39, 42);</string>
    <widget class="QLineEdit" name="message">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>230</x>
       <y>201</y>
-      <width>301</width>
+      <width>351</width>
       <height>20</height>
      </rect>
     </property>
@@ -113,9 +113,9 @@ color: rgb(44, 47, 51);</string>
    <widget class="QLineEdit" name="passwd">
     <property name="geometry">
      <rect>
-      <x>282</x>
+      <x>192</x>
       <y>131</y>
-      <width>201</width>
+      <width>291</width>
       <height>20</height>
      </rect>
     </property>
@@ -125,7 +125,7 @@ color: rgb(44, 47, 51);</string>
      <rect>
       <x>40</x>
       <y>131</y>
-      <width>231</width>
+      <width>151</width>
       <height>16</height>
      </rect>
     </property>
@@ -136,9 +136,9 @@ color: rgb(44, 47, 51);</string>
    <widget class="QLineEdit" name="email">
     <property name="geometry">
      <rect>
-      <x>282</x>
+      <x>192</x>
       <y>101</y>
-      <width>301</width>
+      <width>391</width>
       <height>20</height>
      </rect>
     </property>
@@ -148,7 +148,7 @@ color: rgb(44, 47, 51);</string>
      <rect>
       <x>40</x>
       <y>101</y>
-      <width>221</width>
+      <width>131</width>
       <height>16</height>
      </rect>
     </property>
@@ -254,7 +254,7 @@ color: rgb(44, 47, 51);</string>
     <property name="geometry">
      <rect>
       <x>490</x>
-      <y>301</y>
+      <y>290</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -316,6 +316,47 @@ color: rgb(44, 47, 51);</string>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
     </property>
+   </widget>
+   <widget class="QLabel" name="browser_label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>290</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select browser  :</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="browser">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>290</y>
+      <width>251</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(255, 255, 255);</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Google Chrome</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Microsoft Edge</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Mozilla Firefox</string>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
