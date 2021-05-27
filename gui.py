@@ -49,6 +49,8 @@ class Ui_MainWindow(object):
         self.passwd = QtWidgets.QLineEdit(self.centralwidget)
         self.passwd.setGeometry(QtCore.QRect(192, 131, 291, 25))
         self.passwd.setObjectName("passwd")
+        self.passwd.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.passwd.setStyleSheet('lineedit-password-character: 9679')
 
         self.save_passwd = QtWidgets.QPushButton(self.centralwidget)
         self.save_passwd.setEnabled(True)
