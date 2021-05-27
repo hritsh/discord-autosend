@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Discord Autosend</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="logo.qrc">
+    <normaloff>:/image/logo1.ico</normaloff>:/image/logo1.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(44, 47, 51);
 color: rgb(255, 255, 255);

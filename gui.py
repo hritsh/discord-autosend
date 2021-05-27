@@ -21,6 +21,13 @@ from webdriver_manager.firefox import GeckoDriverManager
 from time import sleep
 from pickle import load, dump
 
+try:
+    from PyQt5.QtWinExtras import QtWin
+    myappid = 'hritish.discord.autosend.1.0'
+    QtWin.setCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
+
 class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
@@ -30,7 +37,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "alternate-background-color: rgb(35, 39, 42);")
         MainWindow.setUnifiedTitleAndToolBarOnMac(True)
-        MainWindow.setWindowIcon(QtGui.QIcon(":/image/logo1.png"))
+        MainWindow.setWindowIcon(QtGui.QIcon(":/image/logo1.ico"))
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
