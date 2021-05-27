@@ -18,7 +18,6 @@ def retrieve():
         frobj.close()
         return details
     except:
-        frobj.close()
         return None
 
 def clearscreen():

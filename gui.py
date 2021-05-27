@@ -15,7 +15,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-import webdriver_manager
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
@@ -188,7 +187,6 @@ class Ui_MainWindow(object):
             frobj.close()
             return details
         except:
-            frobj.close()
             return None
     
     def store(self):
@@ -204,6 +202,8 @@ class Ui_MainWindow(object):
         details = self.retrieve()
         if (details != None):
             email,passwd = details
+        else:
+            email,passwd = ('','')
         ui.email.setText(email)
         ui.passwd.setText(passwd)
 
